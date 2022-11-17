@@ -27,9 +27,3 @@ module "ecr" {
   }
 }
 
-data "aws_ecr_authorization_token" "token" {
-}
-
-output "token" {
-  value = data.aws_ecr_authorization_token.token
-}
