@@ -20,7 +20,8 @@ module "asg" {
   health_check_type         = "EC2"
   vpc_zone_identifier       = [module.vpc.public_subnets[0], module.vpc.public_subnets[1]]
   target_group_arns = module.alb.target_group_arns
-  iam_instance_profile_name = aws_iam_instance_profile.ec2_profile.name
+
+  
 
    initial_lifecycle_hooks = [
     {
@@ -61,5 +62,6 @@ module "asg" {
   ebs_optimized     = false
   enable_monitoring = true
   user_data = file("user_data.sh")
+  iam_instance_profile_name = aws_iam_instance_profile.ec2_profile.name
 
 }
