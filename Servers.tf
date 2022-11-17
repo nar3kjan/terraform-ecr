@@ -63,5 +63,6 @@ module "asg" {
   enable_monitoring = true
   user_data = file("user_data.sh")
   iam_instance_profile_name = aws_iam_instance_profile.ec2_profile.name
+  key_name = "narek-key.n.virginia"
 
 }
