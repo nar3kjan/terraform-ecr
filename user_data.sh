@@ -13,4 +13,12 @@ echo \
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-sudo usermod -aG dcoker $user 
+sudo usermod -aG docker $user
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 558664324013.dkr.ecr.us-east-1.amazonaws.com
+
+docker run -d -p80:80 558664324013.dkr.ecr.us-east-1.amazonaws.com/ubuntu-nginx/main-*

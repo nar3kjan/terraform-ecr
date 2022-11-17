@@ -1,4 +1,4 @@
-/*data "aws_route53_zone" "my_zone" {
+data "aws_route53_zone" "my_zone" {
   name         = "nar3kjan.link"
   private_zone = false
 }

@@ -1,4 +1,4 @@
-/*resource "aws_security_group" "dev_sg" {
+resource "aws_security_group" "dev_sg" {
   name        = "Development SG"
   description = "Development SG"
   vpc_id = module.vpc.vpc_id
@@ -23,4 +23,3 @@ tags = {
       Owner = "Narek Arakelyan"
     } 
 }
-*/
