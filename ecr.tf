@@ -1,8 +1,7 @@
-module "public_ecr" {
+module "ecr" {
   source = "terraform-aws-modules/ecr/aws"
 
-  repository_name = "ngnix-narek"
-  repository_type = "public"
+  repository_name = "ubuntu-nginx"
 
   repository_lifecycle_policy = jsonencode({
     rules = [
@@ -21,8 +20,6 @@ module "public_ecr" {
       }
     ]
   })
-
-
 
   tags = {
     Terraform   = "true"
