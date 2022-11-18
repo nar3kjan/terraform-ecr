@@ -1,9 +1,9 @@
-data "aws_ami" "latest_ubuntu" {
-  owners = ["099720109477"]
+data "aws_ami" "latest_packer_image" {
+  owners = ["558664324013"]
   most_recent = true
   filter {
     name = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+    values = ["ubuntu-nginx*"]
   }
 }
 
@@ -56,7 +56,7 @@ module "asg" {
   update_default_version      = true
   security_groups = [aws_security_group.dev_sg.id]
 
-  image_id          = data.aws_ami.latest_ubuntu.id
+  image_id          = data.aws_ami.latest_packer_image.id
   instance_type     = var.instance_type
   ebs_optimized     = false
   enable_monitoring = true
