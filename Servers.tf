@@ -12,7 +12,6 @@ module "asg" {
 
   # Autoscaling group
   name = "Development-asg"
-
   min_size                  = 2
   max_size                  = 2
   desired_capacity          = 2
@@ -58,11 +57,11 @@ module "asg" {
   security_groups = [aws_security_group.dev_sg.id]
 
   image_id          = data.aws_ami.latest_ubuntu.id
-  instance_type     = "t2.micro"
+  instance_type     = var.instance_type
   ebs_optimized     = false
   enable_monitoring = true
   user_data = file("user_data.sh")
   iam_instance_profile_name = aws_iam_instance_profile.ec2_profile.name
-  key_name = "narek-key.n.virginia"
+  key_name = var.key_name
 
 }
