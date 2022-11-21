@@ -3,8 +3,7 @@ on:
   repository_dispatch:
     types: [my-event]
 
-  push:
-    branches: [main]
+
 
 jobs:
   terraform:
@@ -29,5 +28,6 @@ jobs:
       - name: Terraform Init
         run: terraform init
      
+
       - name: Terraform Apply
-        run: terraform destroy -auto-approve
+        run: terraform apply -auto-approve
