@@ -3,7 +3,8 @@ on:
   repository_dispatch:
     types: [my-event]
 
-
+  push:
+    branches: [main]
 
 jobs:
   terraform:
