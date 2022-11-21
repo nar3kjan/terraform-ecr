@@ -32,9 +32,9 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
-        if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
 
       - name: Terraform Apply
         run: terraform apply -replace=module.asg -auto-approve
-        if: github.ref == 'refs/heads/"my-event"' && github.event_name == 'repository_dispatch'
+        if: github.ref == 'refs/heads/my-event' && github.event_name == 'repository_dispatch'
