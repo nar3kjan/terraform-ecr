@@ -36,5 +36,5 @@ jobs:
 
 
       - name: Terraform Apply
-        run: terraform apply -replace=aws_autoscaling_group.this -auto-approve
+        run: terraform apply -replace="module.asg.aws_autoscaling_group.this[0]" -auto-approve
         if: github.event_name != 'push'
